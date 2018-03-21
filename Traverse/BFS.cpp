@@ -1,4 +1,37 @@
-void Graph::BFS(int s)
+// Implement BFS for tree
+void BFS(Node *pRoot)  
+{  
+    if (pRoot==NULL)  
+        return;  
+  
+    queue<Node*> Q;  
+  
+    Q.push(pRoot);  
+  
+    while(!Q.empty())  
+    {  
+          
+        Node *node = Q.front();  
+  
+        cout<<node->nVal<<"->";  
+        if (node->pLeft!=NULL)  
+        {  
+            Q.push(node->pLeft);  
+        }  
+  
+        if (node->pRight!=NULL)  
+        {  
+            Q.push(node->pRight);  
+        }  
+  
+        Q.pop();  
+    }  
+  
+    cout<<endl;  
+}  
+
+// Implement BFS for graph
+void BFS(int s)
 {
     // Mark all the vertices as not visited
     bool *visited = new bool[V];
